@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Cotações</title>
+
+    <!-- fonte do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>Dashboard de Cotações</h1>
+        <p>Valores de compra em tempo real (fonte: AwesomeAPI)</p>
+    </header>
+
+    <!-- os 3 cards. comecam vazios e o JS preenche depois.
+         o data-moeda eh pro JS achar o card certo. -->
+    <main class="grade-cards">
+
+        <article class="card" data-moeda="USD">
+            <div class="card-topo">
+                <span class="icone">$</span>
+                <span class="sigla">USD → BRL</span>
+            </div>
+            <h2 class="nome-moeda">Dólar Americano</h2>
+            <p class="valor" data-valor>Carregando...</p>
+            <p class="variacao" data-variacao></p>
+        </article>
+
+        <article class="card" data-moeda="EUR">
+            <div class="card-topo">
+                <span class="icone">€</span>
+                <span class="sigla">EUR → BRL</span>
+            </div>
+            <h2 class="nome-moeda">Euro</h2>
+            <p class="valor" data-valor>Carregando...</p>
+            <p class="variacao" data-variacao></p>
+        </article>
+
+        <article class="card" data-moeda="BTC">
+            <div class="card-topo">
+                <span class="icone">₿</span>
+                <span class="sigla">BTC → BRL</span>
+            </div>
+            <h2 class="nome-moeda">Bitcoin</h2>
+            <p class="valor" data-valor>Carregando...</p>
+            <p class="variacao" data-variacao></p>
+        </article>
+
+    </main>
+
+    <footer class="rodape">
+        <button id="btnAtualizar" class="botao-atualizar">Atualizar agora</button>
+        <span id="ultimaAtualizacao" class="status"></span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

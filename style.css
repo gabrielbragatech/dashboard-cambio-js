@@ -1,0 +1,173 @@
+/* Dashboard de cotacoes - dark mode */
+
+/* deixo as cores aqui em cima pra facilitar mudar depois */
+:root {
+    --fundo:        #0f172a;
+    --fundo-card:   #1e293b;
+    --borda:        #334155;
+    --texto:        #f1f5f9;
+    --texto-suave:  #94a3b8;
+    --destaque:     #38bdf8;
+    --verde:        #4ade80;
+    --vermelho:     #f87171;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    min-height: 100vh;
+    /* um gradiente leve pra nao ficar tudo chapado */
+    background-image: radial-gradient(circle at top right,
+                      rgba(56, 189, 248, 0.08), transparent 40%);
+    padding: 40px 20px;
+}
+
+/* cabecalho */
+.cabecalho {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cabecalho h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.cabecalho p {
+    color: var(--texto-suave);
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+
+/* grid dos cards: cria quantas colunas couberem, min de 260px cada */
+.grade-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* card */
+.card {
+    background-color: var(--fundo-card);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* levanta um pouco o card no hover */
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--destaque);
+    box-shadow: 0 16px 40px rgba(56, 189, 248, 0.15);
+}
+
+.card-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(56, 189, 248, 0.12);
+    color: var(--destaque);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.sigla {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    background-color: rgba(148, 163, 184, 0.1);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.nome-moeda {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+}
+
+.valor {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.variacao {
+    font-size: 0.9rem;
+    font-weight: 500;
+    min-height: 1.2em; /* reserva o espaco pra tela nao pular */
+}
+
+.variacao.subiu  { color: var(--verde); }
+.variacao.caiu   { color: var(--vermelho); }
+
+/* quando da erro deixo a borda vermelha */
+.card.erro {
+    border-color: var(--vermelho);
+}
+.card.erro .valor {
+    color: var(--vermelho);
+    font-size: 1.1rem;
+}
+
+/* rodape */
+.rodape {
+    max-width: 980px;
+    margin: 32px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.botao-atualizar {
+    background-color: var(--destaque);
+    color: #08263a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.botao-atualizar:hover {
+    filter: brightness(1.1);
+}
+
+.botao-atualizar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.status {
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+}
